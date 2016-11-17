@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+//Set up connection to the database.
+//Database name is simple_forum.
 var monk = require('monk');
 var db = monk('localhost:27017/simple_forum');
 
@@ -61,7 +63,7 @@ router.get('/:id', function(req, res) {
     return value: Success message, else error if
     edit could not be performed.
 ***/
-router.put('/:id', function(req, res) {
+router.put('/edit/:id', function(req, res) {
 	var collection = db.get('messages');
 	collection.update({
 		_id: req.params.id
@@ -83,8 +85,8 @@ router.put('/:id', function(req, res) {
      could not be deleted.
 ****/
 
-router.delete('/:id', function(req, res) {
-	var collection = db.get('videos');
+router.delete('/delete/:id', function(req, res) {
+	var collection = db.get('messages');
 	collection.remove({_id: req.params.id}, function(err, video) {
 		if (err) throw err;
 
