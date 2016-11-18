@@ -23,13 +23,13 @@ Mongodb - (https://www.mongodb.com/
 2. Clone the project using the command
    git clone https://github.com/mekicha/simple_forum.git
 
-3. Cd to the directory simple_forum
+3. Cd to the directory simple_forum/server
 
 4. Use npm to install other dependencies
    npm install -d
 
-5.Run the application using Node:
-   node app.js
+5.Run the application using npm:
+   npm start
 
 6. Visit localhost:3000 in a browser. To see raw json response, append /api/messages to the address.
 
