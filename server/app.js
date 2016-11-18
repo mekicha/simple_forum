@@ -1,3 +1,4 @@
+process.env.NODE_ENV = 'test';
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -8,7 +9,6 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var messages = require('./routes/messages');
-
 var app = express();
 
 // view engine setup
