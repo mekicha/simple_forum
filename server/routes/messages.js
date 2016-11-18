@@ -3,7 +3,7 @@ var router = express.Router();
 
 //Set up connection to the database.
 //Database name is simple_forum.
-var config = require('../_config');
+
 var monk = require('monk');
 var db = monk('localhost:27017/simple_forum');
 

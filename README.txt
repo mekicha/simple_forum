@@ -33,3 +33,14 @@ Mongodb - (https://www.mongodb.com/
 
 6. Visit localhost:3000 in a browser. To see raw json response, append /api/messages to the address.
 
+To run test
+-----------
+The test script is in test/test-server.js.
+You will need to install mocha and chai to run the test.
+If you followed step 4 above, you should have that already.
+npm install -g mocha to install mocha system wide.
+Type mocha and watch the tests pass elegantly.
+Mocha automatically tries the find the test scripts, so you need not 
+type mocha server-test.js for example.
+
+
