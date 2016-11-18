@@ -5,12 +5,7 @@ var router = express.Router();
 //Database name is simple_forum.
 var config = require('../_config');
 var monk = require('monk');
-//var db = monk('localhost:27017/simple_forum');
-var db = monk(config.mongoURI[process.env.NODE_ENV], function(err, res){
-	if (err)
-		console.log('Error connecting to the database. ' + err);
-	console.log('Connected to database: ' +config.mongoURI[process.env.NODE_ENV]);
-});
+var db = monk('localhost:27017/simple_forum');
 
 /*** Endpoint that returns the list of all messages
      in the forum as a list of <ID,HEADER> pair.

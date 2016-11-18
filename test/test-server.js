@@ -8,7 +8,7 @@ var monk = require('../server/node_modules/monk');
 
 chai.use(chaiHttp);
 
-var db = monk('localhost:37017/testdb');
+var db = monk('localhost:27017/testdb');
 var collection = db.get('messages');
 
 describe('messages', function(){
@@ -94,7 +94,7 @@ describe('messages', function(){
 			});
 		});
 	});
-	
+
 	it('should delete a single message on /messages/<id> DELETE', function(done){
 		chai.request(server)
 		.get('/api/messages')
