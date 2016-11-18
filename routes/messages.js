@@ -63,7 +63,7 @@ router.get('/:id', function(req, res) {
     return value: Success message, else error if
     edit could not be performed.
 ***/
-router.put('/edit/:id', function(req, res) {
+router.put('/:id', function(req, res) {
 	var collection = db.get('messages');
 	collection.update({
 		_id: req.params.id
@@ -85,7 +85,7 @@ router.put('/edit/:id', function(req, res) {
      could not be deleted.
 ****/
 
-router.delete('/delete/:id', function(req, res) {
+router.delete('/:id', function(req, res) {
 	var collection = db.get('messages');
 	collection.remove({_id: req.params.id}, function(err, video) {
 		if (err) throw err;
