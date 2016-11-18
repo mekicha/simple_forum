@@ -45,19 +45,19 @@ describe('messages', function(){
 	});
 
 	it('should list a single message on /api/messages/<id> GET', function(done){
-		var msg = {
+		var mesg = {
 			"header": "A single message",
 			"message": "All we want to get is the id, nothing more"
 		};
 		var collection = db.get('messages');
-		collection.insert(msg, function(err,msg){
+		collection.insert(mesg, function(err, res){
 			chai.request(server)
-			.get('/api/messages/'+msg._id)
-			.end(function(err,res){
-				if (err) throw err;
-				res.should.have.status(200);
-				res.should.be.json;
-				res.body.should.have.property('message');
+			.get('/api/messages/'+res_.id)
+			.end(function(error,response){
+				if (error) throw error;
+				response.should.have.status(200);
+				response.should.be.json;
+				response.body.should.have.property('message');
                 done();
 			});
 		});
@@ -83,7 +83,6 @@ describe('messages', function(){
 		chai.request(server)
 		.get('/api/messages')
 		.end(function(err, res){
-			//console.log(res.body);
 			chai.request(server)
 			.put('/api/messages/'+res.body[0][0])
 			.send({"header": "Changed by a put request",
@@ -95,6 +94,7 @@ describe('messages', function(){
 			});
 		});
 	});
+	
 	it('should delete a single message on /messages/<id> DELETE', function(done){
 		chai.request(server)
 		.get('/api/messages')
